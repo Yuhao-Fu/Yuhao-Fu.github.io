@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuhao Fu — Portfolio (index)</title>
+<style>
+  :root { --ink:#17191b; --soft:#5a5f63; --rule:#e1ddd3; --paper:#fbfaf7; --accent:#0b5a50; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    background: var(--paper); color: var(--ink);
+    font-family: "Iowan Old Style","Palatino Linotype",Palatino,Cambria,Georgia,serif;
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px 24px;
+  }
+  main { width: 100%; max-width: 760px; }
+  .eyebrow {
+    font-family: ui-monospace,"Cascadia Mono",Consolas,monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 14px;
+  }
+  h1 { font-weight: 400; font-size: clamp(2rem,5vw,2.75rem); letter-spacing: -.03em; margin: 0 0 10px; }
+  .lede { color: var(--soft); font-size: 1rem; margin: 0 0 32px; max-width: 52ch; }
+  ol { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--ink); }
+  li { border-bottom: 1px solid var(--rule); }
+  a {
+    display: flex; gap: 18px; align-items: baseline;
+    padding: 20px 2px; text-decoration: none; color: inherit;
+  }
+  a:hover .n { color: var(--accent); }
+  .n { font-family: ui-monospace,Consolas,monospace; font-size: 11px; letter-spacing: .1em; color: var(--soft); }
+  .t { font-size: 1.125rem; }
+  .d { margin-left: auto; font-family: ui-monospace,Consolas,monospace; font-size: 11px; color: var(--soft); }
+  footer {
+    margin-top: 32px; font-family: ui-monospace,Consolas,monospace;
+    font-size: 11px; letter-spacing: .06em; color: var(--soft);
+  }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">EEEE3134 · Coursework Part I</p>
+  <h1>Yuhao Fu — two versions</h1>
+  <p class="lede">
+    Both pages below present the same person and the same factual content. They differ
+    only in who made the design decisions.
+  </p>
+  <ol>
+    <li>
+      <a href="ai-generated-page.html">
+        <span class="n">V1</span>
+        <span class="t">AI-generated page</span>
+        <span class="d">one prompt → Codex</span>
+      </a>
+    </li>
+    <li>
+      <a href="me-designed-page.html">
+        <span class="n">V2</span>
+        <span class="t">AI-guided page</span>
+        <span class="d">spec → implementation</span>
+      </a>
+    </li>
+  </ol>
+  <footer>github.com/Yuhao-Fu · 2025</footer>
+</main>
+</body>
+</html>

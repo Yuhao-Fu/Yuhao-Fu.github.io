@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Yuhao Fu — BEng Electrical &amp; Electronic Engineering, University of Nottingham Ningbo China. Embedded firmware, control systems and robotics.">
+<meta name="color-scheme" content="light dark">
+<title>Yuhao Fu — Embedded Systems &amp; Robotics</title>
+<link rel="stylesheet" href="assets/site.css">
+<script>
+  /* Set the stored/preferred theme before first paint to avoid a flash. */
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+    } catch (e) { /* storage blocked: fall back to the light default */ }
+  })();
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <p class="masthead__mark">Yuhao&nbsp;Fu<span class="masthead__mark-sub">／ portfolio</span></p>
+    <div class="masthead__tools">
+      <span class="masthead__rev" title="Page revision">rev&nbsp;2.0</span>
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <span class="theme-toggle__dot" aria-hidden="true"></span>
+        <span class="theme-toggle__label">Dark</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="shell">
+
+  <!-- ── Masthead ─────────────────────────────────────────────── -->
+  <section class="hero" id="top" aria-labelledby="hero-name">
+    <div class="hero__grid">
+      <div class="hero__lead">
+        <p class="eyebrow">Electrical &amp; Electronic Engineering · Year 4</p>
+        <h1 id="hero-name">Yuhao Fu</h1>
+        <p class="lede">
+          I write firmware and close control loops for machines that have to behave
+          predictably in the physical world — motor drives, mobile robots, and the
+          sensors that sit between them.
+        </p>
+      </div>
+
+      <dl class="spec">
+        <div class="spec__row"><dt>Discipline</dt><dd>Embedded systems · Robotics</dd></div>
+        <div class="spec__row"><dt>Institution</dt><dd>University of Nottingham Ningbo China</dd></div>
+        <div class="spec__row"><dt>Location</dt><dd>Ningbo, Zhejiang, China</dd></div>
+        <div class="spec__row"><dt>Status</dt><dd><span class="pip" aria-hidden="true"></span>Open to 2027 graduate roles</dd></div>
+        <div class="spec__row"><dt>Contact</dt><dd><a href="mailto:ssyyf8@nottingham.edu.cn">ssyyf8@nottingham.edu.cn</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="layout">
+
+    <!-- ── Section index ──────────────────────────────────────── -->
+    <nav class="toc" aria-label="Section index">
+      <p class="toc__label">Index</p>
+      <ol class="toc__list">
+        <li><a href="#profile" data-spy="profile"><span class="toc__num">01</span>Profile</a></li>
+        <li><a href="#work" data-spy="work"><span class="toc__num">02</span>Selected work</a></li>
+        <li><a href="#stack" data-spy="stack"><span class="toc__num">03</span>Toolbox</a></li>
+        <li><a href="#record" data-spy="record"><span class="toc__num">04</span>Record</a></li>
+        <li><a href="#contact" data-spy="contact"><span class="toc__num">05</span>Contact</a></li>
+      </ol>
+    </nav>
+
+    <div class="body">
+
+      <!-- ── 01 Profile ───────────────────────────────────────── -->
+      <section class="chapter" id="profile" aria-labelledby="h-profile">
+        <header class="chapter__head">
+          <span class="chapter__num" aria-hidden="true">01</span>
+          <h2 id="h-profile">Profile</h2>
+        </header>
+
+        <div class="prose">
+          <p>
+            I am a final-year BEng Electrical &amp; Electronic Engineering student at the
+            University of Nottingham Ningbo China. My work sits at the boundary between
+            the analogue world and the digital one: sampling a current shunt accurately
+            enough for field-oriented control, keeping a control loop deterministic when
+            the scheduler is not, and reasoning about why a robot that worked on the bench
+            drifts in the corridor.
+          </p>
+          <p>
+            Three things keep drawing me back. <strong>Determinism</strong> — a 1&nbsp;kHz
+            current loop has to finish its work in the time it was given, every time.
+            <strong>Diagnosis</strong> — most embedded failures are not algorithmic but
+            electrical, and the oscilloscope usually settles in a minute what a week of
+            code review cannot. <strong>Restraint</strong> — the best board is often the one
+            with fewer parts, and the best firmware is the one that fits in a page.
+          </p>
+          <p>
+            Alongside hardware I have worked on longitudinal vehicle modelling and
+            car-following simulation, which is where my interest in autonomous systems
+            became concrete: the same loop that holds a motor at 3&nbsp;000&nbsp;rpm also
+            holds a vehicle at a safe headway.
+          </p>
+        </div>
+
+        <ul class="facts" aria-label="At a glance">
+          <li><span class="facts__k">Focus</span><span class="facts__v">Motor control, mobile robotics, sensing</span></li>
+          <li><span class="facts__k">Languages</span><span class="facts__v">C, C++, Python, MATLAB</span></li>
+          <li><span class="facts__k">Hardware</span><span class="facts__v">STM32, ESP32, KiCad, bench instrumentation</span></li>
+          <li><span class="facts__k">Methods</span><span class="facts__v">Bare-metal &amp; RTOS scheduling, PID/FOC, Git</span></li>
+        </ul>
+      </section>
+
+      <!-- ── 02 Selected work ─────────────────────────────────── -->
+      <section class="chapter" id="work" aria-labelledby="h-work">
+        <header class="chapter__head">
+          <span class="chapter__num" aria-hidden="true">02</span>
+          <h2 id="h-work">Selected work</h2>
+        </header>
+
+        <ol class="work">
+
+          <li class="work__item">
+            <div class="work__meta">
+              <span class="work__year">2026</span>
+              <span class="work__tag">Firmware · Hardware</span>
+            </div>
+            <h3 class="work__title">Field-oriented control for a BLDC drive</h3>
+            <p class="work__desc">
+              Bare-metal STM32F4 firmware driving a three-phase inverter at
+              20&nbsp;kHz PWM. Implemented Clarke/Park transforms, two current PI loops and a
+              speed loop, with an SPI magnetic encoder for rotor angle and CAN frames for
+              telemetry.
+            </p>
+            <p class="work__note">
+              <span class="work__note-k">Hardest part</span>
+              Current-sense gain drift pushed the d-axis reference off zero at high duty;
+              fixed by re-zeroing offsets inside the PWM dead-time window instead of at
+              start-up only.
+            </p>
+          </li>
+
+          <li class="work__item">
+            <div class="work__meta">
+              <span class="work__year">2026</span>
+              <span class="work__tag">Robotics · Systems</span>
+            </div>
+            <h3 class="work__title">Differential-drive rover with ROS&nbsp;2</h3>
+            <p class="work__desc">
+              A two-wheel rover built around an ESP32 bridge and a Raspberry Pi running
+              ROS&nbsp;2. Wheel odometry is published from quadrature counts, fused with an
+              IMU, and consumed by a Nav2 stack fed by a 2D LiDAR scan.
+            </p>
+            <p class="work__note">
+              <span class="work__note-k">Hardest part</span>
+              Odometry drifted on carpet because the two wheels carried unequal weight;
+              corrected by calibrating an effective wheel radius per side against a
+              straight-line ground truth.
+            </p>
+          </li>
+
+          <li class="work__item">
+            <div class="work__meta">
+              <span class="work__year">2026</span>
+              <span class="work__tag">Simulation · Python</span>
+            </div>
+            <h3 class="work__title">Car-following: Gipps and kNN driver models</h3>
+            <p class="work__desc">
+              Longitudinal vehicle simulation comparing an analytic Gipps car-following
+              model against a k-nearest-neighbour driver model trained on trajectory data,
+              evaluated with time–space diagrams and fundamental-diagram plots.
+            </p>
+            <p class="work__note">
+              <span class="work__note-k">Hardest part</span>
+              The kNN model reproduced plausible headways but its accelerations were
+              discontinuous; a first-order lag on the commanded acceleration was needed
+              before the trajectory stopped looking like a step function.
+            </p>
+          </li>
+
+          <li class="work__item">
+            <div class="work__meta">
+              <span class="work__year">2025</span>
+              <span class="work__tag">Hardware · PCB</span>
+            </div>
+            <h3 class="work__title">Low-power sensor node</h3>
+            <p class="work__desc">
+              Four-layer node with an I²C sensor bus, a buck converter and a
+              microcontroller sleep schedule, designed in KiCad and brought up on a
+              reflowed prototype.
+            </p>
+            <p class="work__note">
+              <span class="work__note-k">Hardest part</span>
+              The first revision drew 400&nbsp;µA in sleep — an unconfigured GPIO holding a
+              regulator enable pin; the second revision reduced it to 12&nbsp;µA.
+            </p>
+          </li>
+
+        </ol>
+      </section>
+
+      <!-- ── 03 Toolbox ───────────────────────────────────────── -->
+      <section class="chapter" id="stack" aria-labelledby="h-stack">
+        <header class="chapter__head">
+          <span class="chapter__num" aria-hidden="true">03</span>
+          <h2 id="h-stack">Toolbox</h2>
+        </header>
+
+        <p class="chapter__intro">
+          Levels are deliberately qualitative. A percentage next to a language is a
+          number nobody can verify; what follows is where I am actually confident and
+          where I still reach for the reference manual.
+        </p>
+
+        <div class="table-wrap">
+          <table class="matrix">
+            <caption class="visually-hidden">Technical skills by area and self-assessed level</caption>
+            <thead>
+              <tr><th scope="col">Area</th><th scope="col">Tools &amp; languages</th><th scope="col">Level</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Embedded C/C++</th>
+                <td>STM32 HAL &amp; LL, CMSIS, FreeRTOS, linker scripts</td>
+                <td><span class="level level--3">Daily use</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Control</th>
+                <td>PID, FOC, cascade loops, MATLAB/Simulink, system identification</td>
+                <td><span class="level level--3">Daily use</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Robotics</th>
+                <td>ROS&nbsp;2, Nav2, tf2, URDF, sensor fusion (EKF)</td>
+                <td><span class="level level--2">Working knowledge</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Hardware</th>
+                <td>KiCad, reflow &amp; hand soldering, oscilloscope, logic analyser</td>
+                <td><span class="level level--2">Working knowledge</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Scientific computing</th>
+                <td>Python (NumPy, pandas, Matplotlib), Git, Jupyter</td>
+                <td><span class="level level--3">Daily use</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Perception</th>
+                <td>OpenCV fundamentals, camera calibration, classical segmentation</td>
+                <td><span class="level level--1">Familiar</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── 04 Record ────────────────────────────────────────── -->
+      <section class="chapter" id="record" aria-labelledby="h-record">
+        <header class="chapter__head">
+          <span class="chapter__num" aria-hidden="true">04</span>
+          <h2 id="h-record">Record</h2>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline__item">
+            <span class="timeline__when">2023 — 2027</span>
+            <h3 class="timeline__what">BEng Electrical &amp; Electronic Engineering</h3>
+            <p class="timeline__where">University of Nottingham Ningbo China</p>
+            <p class="timeline__detail">
+              Core modules across signals and systems, control, power electronics and
+              embedded design; final-year work centred on autonomous systems and
+              intelligent control.
+            </p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__when">2026</span>
+            <h3 class="timeline__what">Autonomous driving coursework</h3>
+            <p class="timeline__where">EEEE3134 Applications of AI in EEE</p>
+            <p class="timeline__detail">
+              Vehicle longitudinal modelling, the Gipps model and kNN-driven car following,
+              plus an exploration of LLM-assisted vehicle control.
+            </p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__when">2025 — 2026</span>
+            <h3 class="timeline__what">Embedded systems laboratory</h3>
+            <p class="timeline__where">Department of EEE, UNNC</p>
+            <p class="timeline__detail">
+              Motor drive bring-up, sensor interfacing, and multi-week board design work
+              from schematic through to validated prototype.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ── 05 Contact ───────────────────────────────────────── -->
+      <section class="chapter chapter--last" id="contact" aria-labelledby="h-contact">
+        <header class="chapter__head">
+          <span class="chapter__num" aria-hidden="true">05</span>
+          <h2 id="h-contact">Contact</h2>
+        </header>
+
+        <div class="contact">
+          <p class="contact__lede">
+            Email is the fastest route. I reply to anything concrete — a role, a
+            question about a project, or a request for the schematic.
+          </p>
+          <a class="contact__mail" href="mailto:ssyyf8@nottingham.edu.cn">ssyyf8@nottingham.edu.cn</a>
+          <ul class="contact__links">
+            <li><a href="https://github.com/Yuhao-Fu">GitHub</a></li>
+            <li><a href="https://www.nottingham.edu.cn/">University</a></li>
+            <li><a href="#top">Back to top</a></li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <div class="colophon__inner">
+    <p class="colophon__line">
+      Designed and hand-written by Yuhao Fu · <span id="colophon-rev">2026</span>
+    </p>
+    <p class="colophon__line colophon__line--muted">
+      No frameworks, no trackers, no web fonts. Three files, served as static HTML.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

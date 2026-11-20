@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuhao Fu | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --primary: #7c3aed;
+    --secondary: #06b6d4;
+    --dark: #0f0c29;
+    --card: rgba(255, 255, 255, 0.06);
+    --text: #e8e8f0;
+    --muted: #a5a5c0;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--dark);
+    background-image: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Animated background blobs ---------- */
+  .blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.55;
+    z-index: 0;
+    animation: float 18s ease-in-out infinite;
+  }
+  .blob-1 { width: 460px; height: 460px; background: #7c3aed; top: -120px; left: -100px; }
+  .blob-2 { width: 380px; height: 380px; background: #06b6d4; bottom: -80px; right: -80px; animation-delay: -6s; }
+  .blob-3 { width: 300px; height: 300px; background: #ec4899; top: 45%; left: 55%; animation-delay: -12s; opacity: 0.35; }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%      { transform: translate(40px, -50px) scale(1.08); }
+    66%      { transform: translate(-30px, 30px) scale(0.95); }
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Navigation ---------- */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 24px;
+    width: 100vw; margin-left: calc(50% - 50vw);
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(15, 12, 41, 0.62);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em;
+    background: linear-gradient(90deg, #a78bfa, #22d3ee);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  nav ul { display: flex; gap: 26px; list-style: none; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color .25s; }
+  nav a:hover { color: #fff; }
+
+  /* ---------- Hero ---------- */
+  header { text-align: center; padding: 110px 0 90px; }
+  .badge {
+    display: inline-block; padding: 7px 18px; border-radius: 999px;
+    background: rgba(124, 58, 237, 0.18);
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #c4b5fd; margin-bottom: 26px;
+  }
+  header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.1; letter-spacing: -0.035em; font-weight: 700;
+    background: linear-gradient(120deg, #ffffff 20%, #a78bfa 60%, #22d3ee 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+  }
+  header p { max-width: 620px; margin: 0 auto 36px; color: var(--muted); font-size: 1.06rem; }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 13px 30px; border-radius: 999px;
+    font-weight: 600; font-size: 0.94rem; text-decoration: none; cursor: pointer;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .btn-primary {
+    background: linear-gradient(90deg, #7c3aed, #06b6d4); color: #fff;
+    box-shadow: 0 10px 34px rgba(124, 58, 237, 0.45);
+  }
+  .btn-ghost { border: 1px solid rgba(255,255,255,0.22); color: var(--text); }
+  .btn:hover { transform: translateY(-3px); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 70px 0; }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem; font-weight: 700; letter-spacing: -0.02em;
+    text-align: center; margin-bottom: 12px;
+  }
+  .section-sub { text-align: center; color: var(--muted); margin-bottom: 46px; font-size: 0.98rem; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(16px);
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(167, 139, 250, 0.6);
+    box-shadow: 0 20px 50px rgba(124, 58, 237, 0.25);
+  }
+
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; }
+  .about-grid p { color: var(--muted); margin-bottom: 14px; }
+  .stat-card { text-align: center; padding: 28px 16px; }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700;
+    background: linear-gradient(90deg, #a78bfa, #22d3ee);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-label { color: var(--muted); font-size: 0.84rem; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .icon {
+    font-size: 1.9rem; margin-bottom: 16px; display: block;
+  }
+  .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.16rem; margin-bottom: 10px; font-weight: 600; }
+  .card p { color: var(--muted); font-size: 0.94rem; }
+
+  /* ---------- Skill bars ---------- */
+  .skill { margin-bottom: 20px; }
+  .skill-head { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; color: var(--text); }
+  .bar { height: 8px; border-radius: 999px; background: rgba(255,255,255,0.1); overflow: hidden; }
+  .bar span {
+    display: block; height: 100%; border-radius: 999px;
+    background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  }
+
+  /* ---------- Projects ---------- */
+  .project-meta { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #a78bfa; margin-bottom: 10px; }
+
+  /* ---------- Contact ---------- */
+  .contact-box { text-align: center; padding: 54px 24px; }
+  .contact-box a { color: #22d3ee; text-decoration: none; }
+  .contact-box a:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center; padding: 44px 0; color: var(--muted);
+    font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  @media (max-width: 780px) {
+    .about-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+    header { padding: 70px 0 50px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="wrap">
+  <nav>
+    <div class="logo">Yuhao Fu</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="badge">Embedded Systems &amp; Robotics</div>
+    <h1>Yuhao Fu</h1>
+    <p>Electrical &amp; Electronic Engineering student passionate about building intelligent systems at the intersection of hardware and software.</p>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-title">About Me</div>
+    <div class="section-sub">A quick introduction to who I am and what I do</div>
+    <div class="about-grid">
+      <div class="card">
+        <h3>Hello, I'm Yuhao 👋</h3>
+        <p>I am a Year 4 BEng Electrical and Electronic Engineering student at the University of Nottingham Ningbo China. My interests span embedded firmware, control systems and robotics.</p>
+        <p>I enjoy turning ideas into working prototypes — from soldering the first component to writing the final line of firmware. I believe great engineering is equal parts rigor and curiosity.</p>
+        <p>Outside of coursework I explore open-source robotics stacks and read about autonomous driving.</p>
+      </div>
+      <div class="card stat-card">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Years of Study</div>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Projects Completed</div>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Core Technologies</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title">Skills</div>
+    <div class="section-sub">Technologies and tools I work with</div>
+    <div class="grid-3">
+      <div class="card">
+        <h3>💻 Programming</h3>
+        <div class="skill"><div class="skill-head"><span>C / C++</span><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
+        <div class="skill"><div class="skill-head"><span>Python</span><span>88%</span></div><div class="bar"><span style="width:88%"></span></div></div>
+        <div class="skill"><div class="skill-head"><span>MATLAB</span><span>80%</span></div><div class="bar"><span style="width:80%"></span></div></div>
+      </div>
+      <div class="card">
+        <h3>🔧 Embedded</h3>
+        <div class="skill"><div class="skill-head"><span>STM32 / ARM</span><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
+        <div class="skill"><div class="skill-head"><span>ESP32 / IoT</span><span>82%</span></div><div class="bar"><span style="width:82%"></span></div></div>
+        <div class="skill"><div class="skill-head"><span>PCB Design</span><span>75%</span></div><div class="bar"><span style="width:75%"></span></div></div>
+      </div>
+      <div class="card">
+        <h3>🤖 Robotics</h3>
+        <div class="skill"><div class="skill-head"><span>ROS 2</span><span>78%</span></div><div class="bar"><span style="width:78%"></span></div></div>
+        <div class="skill"><div class="skill-head"><span>Control Theory</span><span>83%</span></div><div class="bar"><span style="width:83%"></span></div></div>
+        <div class="skill"><div class="skill-head"><span>Computer Vision</span><span>70%</span></div><div class="bar"><span style="width:70%"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">Projects</div>
+    <div class="section-sub">A selection of things I have built</div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="project-meta">Robotics · 2025</div>
+        <h3>🚗 Autonomous Rover</h3>
+        <p>A differential-drive rover with LiDAR-based mapping, PID velocity control and a ROS 2 navigation stack running on a Raspberry Pi.</p>
+      </div>
+      <div class="card">
+        <div class="project-meta">Embedded · 2025</div>
+        <h3>⚙️ BLDC Motor Controller</h3>
+        <p>Field-oriented control firmware on an STM32 microcontroller, with current sensing, encoder feedback and CAN telemetry.</p>
+      </div>
+      <div class="card">
+        <div class="project-meta">Simulation · 2024</div>
+        <h3>📊 Traffic Flow Model</h3>
+        <p>Implemented the Gipps car-following model and a kNN-driven driver model in Python, evaluated with time–space diagrams.</p>
+      </div>
+      <div class="card">
+        <div class="project-meta">Hardware · 2024</div>
+        <h3>🔌 Sensor Node PCB</h3>
+        <p>A four-layer sensor node with I2C sensor bus, power management and low-power sleep modes, designed in KiCad.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">Let's Connect</div>
+    <div class="section-sub">Always happy to talk about embedded systems and robotics</div>
+    <div class="card contact-box">
+      <p style="font-size:1.1rem;margin-bottom:10px">📧 <a href="mailto:ssyyf8@nottingham.edu.cn">ssyyf8@nottingham.edu.cn</a></p>
+      <p>📍 Ningbo, China · 🎓 University of Nottingham Ningbo China</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Yuhao Fu · Built with AI · Version 1
+  </footer>
+</div>
+
+</body>
+</html>
